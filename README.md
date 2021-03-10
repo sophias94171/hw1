@@ -9,13 +9,15 @@
 
 ## Usage
 
-### Part. 1 Import Modulo
+### Part. 1 
+Import Modulo
 ```
 import csv
 ```
 csv -- fileIO operation|
 
-### Part. 2 Read cwb Weather Data
+### Part. 2 
+Read cwb Weather Data
 ```
 cwb_filename = '106091221.csv'
 data = []
@@ -26,14 +28,16 @@ with open(cwb_filename) as csvfile:
    for row in mycsv:
       data.append(row)
 ```
-### Part. 3.1 Remove HUMD is -99.000 or -999.000
+### Part. 3.1 
+Remove HUMD is -99.000 or -999.000
 ```
 filtered_data = []
 for d in data :
    if d['HUMD'] != '-99.000' and d['HUMD'] != '-999.000':
       filtered_data.append(d)
 ```
-### Part. 3.2 Find out the summation of the HUMD value from C0A880, C0F9A0, C0G640, C0R190, C0X260.
+### Part. 3.2 
+Find out the summation of the HUMD value from C0A880, C0F9A0, C0G640, C0R190, C0X260.
 ```
 stations = ['C0A880', 'C0F9A0', 'C0G640', 'C0R190', 'C0X260']
 humd_lil = []
@@ -47,7 +51,8 @@ for station in stations:
    result_lil.append([station, humd_sum])
    humd_lil.append([station, humd])
 ```   
-### Part. 4 Print result
+### Part. 4 
+Print result
 ```   
 target_data = result_lil
 print(target_data)
